@@ -1,0 +1,141 @@
+\chapter{Applying BERT for Translationese Classification}
+
+\section{Model description}
+
+The Bidirectional Encoder Representations from Transformers (BERT) pre-trained transformer model is fed data and modelled on a large body of English language data. It functions autonomously, indicating that it was trained on unlabeled, unprocessed material. The automated procedure utilized to give inputs and labels from these written documents enables the use of a vast quantity of publicly available data.
+
+
+
+
+The BERT pre-training routine serves two distinct purposes. Beginning with masked language modelling (MLM), 15\% of the words in a sentence are randomly masked. The model is then applied to the entire concealed text to predict the hidden words. This approach does not employ recurrent neural networks (RNNs), which typically process words sequentially and autoregressive models such as GPT, which inherently mask future tokens. The MLM enables the model to learn a bidirectional representation of the text, in contrast to the unidirectional approach of other models.
+
+
+
+
+BERT utilizes the next sentence prediction (NSP) objective during pre-training. In this instance, the model is provided with two masked sentences, which may or may not be consecutive sentences from the original text. The model is responsible for determining whether the second phrase follows promptly after the first.
+
+
+During this pre-training phase, BERT creates its own interpretation and understanding language model of English from which it can extract features useful for a variety of subsequent tasks. If a set of labelled phrase data is provided, for instance, a conventional classifier is capable of being trained using the BERT model's generated features as inputs.
+
+
+
+
+\section{Layers description}
+
+\subsection{Linear}
+
+The PyTorch linear layer is essential for linear transformations in deep learning models. It represents a layer that conducts a linear operation on the input data and is sometimes referred to as dense layer or linear transformation.
+
+When creating a torch instance, the input and output sizes of the layer must be specified.nn.Linear. The number of input features is determined by the input size, whereas the number of output features is determined by the output size. Using a matrix multiplication and an optional bias term, this layer transforms the input data from the input size to the output size.
+
+
+This linear layer is internally initialized with a bias vector and a weight matrix. By default, the biases are initialized to zero, and the weights are randomly selected from a uniform distribution.
+
+
+\subsection{MaxPool1d}
+
+The torchbearer, nn.MaxPool1d is a pooling operation that downsamples a one-dimensional input tensor in PyTorch. This technique is frequently used by convolutional neural networks (CNNs) to reduce the number of parameters and capture the most essential information by compressing the spatial dimensions of the input.
+
+
+
+The kernel size and stride must be specified when establishing an instance of \\ Torch.nn.MaxPool1d. The stride specifies the size of the step between successive pooling operations, while the kernel size provides the size of the pooling window that glides across the input tensor. The maximum value of each pooling window is absorbed by the layer, and the remaining values are discarded.
+
+
+The output value can be calculated as:
+
+\begin{equation}
+    out(N_i, C_j, k) = \max_{m=0,...,kernel\_size-1} input(N_i, C_j, stride * k + m)
+\end{equation}
+
+
+\subsection{Dropout1d}
+
+The torchbearer, nn.Dropout1d layer regularization in PyTorch is used to prevent overfitting in deep learning models, particularly in sequential data processing tasks. During training, some input tensor components are set to zero at random with a specified probability, effectively "dropping out" some values. Using samples from a Bernoulli distribution, each forward call will, with probability p, result in the independent zeroing out of each channel.
+
+
+
+When constructing a torch instance, it is necessary to specify the dropout probability, which determines the likelihood that an element will be set to zero during training. Each element of the input tensor is individually and element-by-element subjected to the dropout operation of the layer.
+
+
+
+
+During training, the elements of the input tensor are randomly set to zero with the specified dropout probability by the Dropout1d layer. By avoiding an overreliance on particular traits, this helps the network to develop representations that are more robust and universal. During inference or evaluation, the layer scales the output by $\frac{1}{1-dropout\_prob}$ to ensure consistent output statistics.
+
+\subsection{ReLU}
+
+In PyTorch, the ReLU layer represents the torch.nn.ReLU (Rectified Linear Unit) activation function, a popular nonlinear activation function in deep learning models. As it operates element-by-element on the input tensor, ReLU nullifies negative values while keeping positive ones.
+
+
+\begin{equation}
+    ReLU(x) = {(x)}^{+} = \max(0, x)
+\end{equation}
+
+While building a torch, no extra parameters are required to be specified.instance of nn.ReLU. The ReLU activation function in the layer is simply applied to the input tensor.
+
+In deep learning models, ReLU is a popular activation function due to its efficiency and simplicity. By adding non-linearity, the network, the model is able to learn complex representations and take in more expressive inputs. ReLU further reduces the problem of disappearing gradients because it does not saturate for positive values.
+
+In conclusion, ReLU function activates the input tensor.
+
+\subsection{Tanh}
+
+The torch.nn.Tanh function in PyTorch represents the hyperbolic tangent activation function, a non-linear activation function often used in deep learning models. The torch.nn.Tanh function performs an element-by-element action on the input tensor, converting each element to its corresponding hyperbolic tangent value.
+
+Each component of an input tensor, x, is transformed by the torch.nn.Tanh function into its corresponding hyperbolic tangent value, $tanh(x)$. When it reaches saturation, the hyperbolic tangent function returns values between -1 and 1. Mathematically speaking, it is:
+
+
+\begin{equation}
+    Tanh(x) = tanh(x) = \frac{exp(x) - exp(-x)}{exp(x) + exp(-x)}
+\end{equation}
+
+The hyperbolic tangent function torch.nn.Tanh, a non-linear function, is used to incorporate non-linearity into the network, enabling the model to learn complex representations and capture more expressive features. Similar to the sigmoid function, it squashes the input values; however, it is zero-centered and has a greater slope towards zero. This can help with the fading gradient problem and increase its applicability for particular professions.
+
+In conclusion, the torch.nn.tanh function applies the hyperbolic tangent activation function element-by-element to each element in an input tensor to determine the associated hyperbolic tangent value. Deep learning models typically employ this non-linear activation function.
+
+
+\subsection{RReLU}
+
+The RReLU (Randomized Leaky Rectified Linear Unit) layer is an activation function in PyTorch that augments the standard Leaky ReLU function with randomness during training. Each member of the input tensor receives a random leaky ReLU transformation from RReLU, with a different random slope within a predetermined range. When drawing conclusions, it behaves like a standard ReLU.
+
+When building an instance of torch, the lower and upper bounds for the possible range of random slopes can be optionally supplied.nn.RReLU. If nothing else is supplied, the default range is between 0.125 and 0.3333333333333333.
+
+
+\begin{equation}
+RReLU(x) =\begin{cases} 
+          x & x\geq 0 \\
+          ax & otherwise\\
+       \end{cases}
+\end{equation}
+
+During training by the torch, each input tensor element is given a distinct random slope within the predefined range. As a result, the activations are given some stochasticity, which can work as a regularizer and help prevent overfitting. During inference or evaluation, the layer behaves like a standard ReLU, setting negative values to zero and keeping positive values.
+
+The torch.nn.RReLU layer can be used as a drop-in replacement for other activation functions, such as ReLU, in deep learning models. Controlled unpredictability is a benefit that can be added during training to improve model performance and generalization.
+
+In conclusion, by applying a randomized leaky ReLU activation function to an input tensor during training, the torch.nn.RReLU layer introduces randomization and acts as a regularizer. During inferencing, it functions as a conventional ReLU activation function.
+
+
+
+\section{Model variations}
+
+The BERT model was initially offered in two configurations: "base" and "large." It supports both case-sensitive and case-insensitive text inputs. By deleting accent markers in uncased versions, the model is made simpler. In order to support Chinese and other languages, cased and uncased variants of the model were eventually made accessible. Following that, whole-word masking took the place of the previous sub-piece masking strategy, indicating a change in preprocessing methods. This switch was also announced together with the debut of two new models. The introduction of 24 tiny BERT models, primarily designed for scenarios with computing constraints, was then made after these.
+
+Translationese has been detected using the bert-base-uncased model.
+
+\begin{center}
+    
+\begin{tabular}{ |p{8cm}||p{3cm}|p{3cm}|  }
+ \hline
+Model	&\#params	&Language\\
+ \hline
+bert-base-uncased	&110M	&English\\
+bert-large-uncased	&340M	&English\\
+bert-base-cased	&110M	&English\\
+bert-large-cased	&340M	&English\\
+bert-base-chinese	&110M	&Chinese\\
+bert-base-multilingual-cased	&110M	&Multiple\\
+bert-large-uncased-whole-word-masking	&340M	&English\\
+bert-large-cased-whole-word-masking	&340M	&English\\
+ \hline
+\end{tabular}
+\captionof{table}{BERT variations\cite{hug}}
+
+\end{center}

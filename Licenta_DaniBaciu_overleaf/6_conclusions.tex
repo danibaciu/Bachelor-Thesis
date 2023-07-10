@@ -1,0 +1,121 @@
+\chapter{Conclusion}
+\label{chap:conclusion}
+
+\section{Key Results}
+
+This section provides a concise overview of the key discoveries and insights gained from the study.
+
+Throughout the research, the effectiveness of employing large language models in translationese classification was investigated. The results demonstrated that these models, with their ability to capture complex linguistic patterns, can be highly successful in identifying and classifying translationese. The performance of the models surpassed that of traditional machine learning approaches, indicating their potential for advancing translation studies.
+
+\begin{center}
+    \begin{tabular}{|p{2.5cm}||p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|  }
+     % \hline
+     % \multicolumn{5}{|c|}{BERT fine-tunning results} \\
+     \hline
+    Model no.	& Acc on Train	& Loss on Train & Acc on Test & Loss on Test\\
+     \hline
+     \multicolumn{5}{|c|}{DE-EN dataset} \\
+     \hline
+    Model 2-A&  94.935\%  &  0.103  &  91.646\%  &  0.36 \\
+    Model 2-B&  94.785\%  &  0.11  &  91.315\%  &  0.326 \\
+    Model 3-A&  94.846\%  &  0.101  &  91.803\%  &  0.392 \\
+    Model 3-B&  94.771\%  &  0.103  &  91.031\%  &  0.408 \\
+    Model 4-A&  99.825\%  &  0.03  &  91.535\%  &  0.474 \\
+    Model 4-B&  99.067\%  &  0.03  &  91.567\%  &  0.361 \\
+     \hline
+     \multicolumn{5}{|c|}{ES-EN dataset} \\
+     \hline
+    Model 2-A&  95.097\%  &  0.102  &  91.992\%  &  0.325 \\
+    Model 2-B&  95.005\%  &  0.1  &  92.04\%  &  0.384 \\
+    Model 3-A&  94.963\%  &  0.102  &  92.055\%  &  0.409 \\
+    Model 3-B&  94.944\%  &  0.099  &  92.323\%  &  0.365 \\
+    Model 4-A&  99.833\%  &  0.03  &  91.992\%  &  0.404 \\
+    Model 4-B&  99.805\%  &  0.028  &  92.229\%  &  0.358 \\
+     \hline
+     \multicolumn{5}{|c|}{A: BERT not activated, B: BERT activated} \\
+     \hline
+    \end{tabular}
+    \captionof{table}{BERT results: Experiment 2}
+\end{center}
+
+The study highlighted the importance of feature extraction from the language model, such as token-level probabilities and contextual embeddings. These features played a vital role in distinguishing between translationese and native language writing, capturing distinct linguistic traits present in translated texts.
+
+Additionally, the research compared different classification models and found that neural networks, particularly those incorporating BERT architectures, succeeded in the highest classification accuracy. This observation further emphasized the effectiveness of neural network models in capturing intricate linguistic patterns associated with translationese.
+
+Furthermore, the study showcased the strength and universal applicability of information from the large language model-based approach. Our models exhibited consistent performance across various language pairs and translation domains, indicating their potential for application in diverse translation scenarios.
+
+\vspace{0.2cm}
+
+\begin{center}
+    \begin{tabular}{|p{2.5cm}||p{2.5cm}|p{2.5cm}|  }
+     % \hline
+     % \multicolumn{3}{|c|}{Compared results} \\
+     \hline
+    Dataset	& Model & Accuracy \\
+     \hline
+     \hline
+    DE-EN&  $BERT^{*}$  &  \textbf{92.4}\%\\
+    DE-EN&  Model 3-A  &  91.8\%  \\
+    \hline
+    \hline
+    ES-EN&  $BERT^{*}$  &  91.4\%\\
+    ES-EN&  Model 3-B  &  \textbf{92.32}\%  \\
+     \hline
+     \multicolumn{3}{|c|}{$BERT^{*}$: BERT best result from paper \cite{mainpaper}} \\
+     \hline
+    \end{tabular}
+    \captionof{table}{Compared results}
+\end{center}
+
+$BERT^{*}$ is the model used in the paper \cite{mainpaper}. This model was created by combining bert-base-uncased and fine-tuned using the simpletransformers\footnote{github.com/ThilinaRajapakse/
+simpletransformers} library.
+
+\section{Constraints}
+
+While the research achieved promising results, it is essential to acknowledge the limitations encountered during the study. One potential limitation is the reliance on pre-existing large language models, such as GPT-3, which may present their own biases or limitations. The generalizability of the findings should be considered in light of the specific language model used.
+
+Another limitation consists of the requirement for extensive computational resources to train and fine-tune the language model. The computational requirements may limit the accessibility and scalability of this approach, particularly for researchers with limited resources.
+
+Moreover, the study focused on the classification of translationese but did not extensively explore the underlying causes or implications of translationese patterns. Further research is necessary to delve deeper into the specific linguistic phenomena and translation strategies associated with translationese.
+
+\section{Practic Applications of our model}
+
+The paper "Using Large Language Models in Translationese Classification" explores the effectiveness of employing large language models, specifically BERT, for detecting English translationese. The findings from this study have several practical applications that can benefit various stakeholders in the field of translation and language processing. Here are some practical applications of a BERT model trained to detect English translationese classification based on the research:
+
+\begin{enumerate}
+    \item Translation Quality Assessment: Large language models trained to detect translationese can be utilized as an objective tool for translated-text quality assessment. By analyzing the possible presence and extent of translationese patterns, translation agencies, professional translators, and language service providers can gain valuable insights into the stylistic and linguistic characteristics of translations, allowing them to identify areas for improvement and enhance the overall quality of translated content.
+
+    \item Translator Training and Feedback: BERT models trained for translationese classification can serve as an educational tool for translator training programs. By providing real-time feedback on translation outputs, these models can help aspiring translators understand the challenges associated with translationese and develop strategies to avoid or mitigate its occurrence. This can lead to more accurate and culturally appropriate translations.
+
+    \item Translation Memory Optimization: Translation memory (TM) systems store previously translated segments to aid translators in their work. By incorporating a BERT model trained to detect translationese into TM systems, translators can receive suggestions or warnings when translationese patterns are detected in segments. This can help maintain consistency and ensure that previous translation choices are appropriately adapted to the context.
+
+    \item Machine Translation Improvement: Large language models trained for translationese classification can be integrated into machine translation (MT) systems to enhance their output quality. By identifying translationese patterns in the output of MT systems, improvements can be made to reduce the occurrence of unnatural or non-idiomatic translations. This can contribute to the development of more accurate and fluent machine translation systems.
+
+    \item Corpus Analysis and Comparative Studies: Researchers and linguists can utilize BERT models trained for translationese classification to conduct corpus analyses and comparative studies between translations and original texts. These models can aid in uncovering and understanding the specific linguistic features, shifts in writing style, or lexical choices that characterize translationese. Such analyses can provide valuable insights into cross-linguistic phenomena, translation strategies, and intercultural communication.
+
+    \item Style Guide Development: BERT models trained to detect translationese can assist in the development of style guides for translators and localization teams. By identifying and documenting translationese patterns specific to different language pairs or domains, style guides can provide guidelines for producing more natural and target language-oriented translations, ensuring consistency and coherence in the translated content.
+
+\end{enumerate}
+
+Overall, the practical applications of a BERT model trained to detect English translationese classification are diverse and can contribute to improving translation quality, translator training, machine translation systems, and linguistic research. By leveraging large language models in this manner, the field of translation and language processing can advance, benefiting both professionals and end-users in achieving more accurate and fluent translations.
+
+
+\section{Future Research Directions}
+
+The conclusions we can draw at the end of this translationese-focused research, are indicative of some of the key points that should be taken into consideration. Therefore, we put forward the following suggestions:
+
+\begin{enumerate}
+    \item Investigation of Translation Strategies: Further exploration of the translation strategies employed by translators that lead to the emergence of translationese patterns could provide valuable insights into cross-linguistic phenomena. Understanding these strategies can contribute to the development of more sophisticated translation models.
+
+    \item Cross-Linguistic Analysis: Extending the study to include a broader range of languages and language pairs can help uncover language-specific characteristics and identify common translationese patterns across different linguistic backgrounds.
+
+    \item Multimodal Translationese Classification: Investigating the application of large language models in multimodal translationese classification, where both textual and visual elements are considered, can provide a more comprehensive understanding of translationese across different modalities.
+
+    \item Addressing Ethical Concerns: As LLMs continue to grow and expand, ethical considerations become crucial. Future research should tackle diagnosis bias worries, fairness, and more importantly, transparency in translationese classification to ensure responsible and equitable use of these models.
+
+    \item Using bigger models: For example, this paper is used bert-base-uncased which has 110M parameters. For future work, we may want to use bert-large-uncased which has 340M parameters and may be better to classify translationese
+
+\end{enumerate}
+
+By pursuing these future research directions, the field of translation studies can further leverage the capabilities of large language models and advance our  extended comprehension of translationese, ultimately benefiting translation professionals and improving cross-linguistic communication.
+

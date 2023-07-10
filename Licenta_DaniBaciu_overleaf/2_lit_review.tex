@@ -1,0 +1,96 @@
+\chapter{Related Work}
+
+The second chapter of the paper "Using Large Language Models in Translationese Classification" is dedicated to the exploration and analysis of related work in translationese classification. A comprehensive literature review is provided, presenting existing approaches, highlighting their strengths and weaknesses, and identifying the gaps in the current research.
+
+\section{Overview of Translationese Classification Approaches}
+
+The study of 'translationese' investigates the unique linguistic traits that distinguish translated texts from non-translated ones. Various computational and machine-learning methods have been employed for this task. In this overview, we discuss some of the prominent approaches to translationese classification, highlighting their strengths, limitations, and effectiveness.
+
+
+Rule-based methods rely on specific linguistic patterns or heuristics to identify translationese. These approaches are often grounded in linguistic theories and observations made in translation studies. For example, certain translation-specific features like the overuse of function words, specific morphosyntactic categories, personal pronouns, and adverbs have been used to recognize translated text. Rule-based methods have the advantage of providing interpretable results since the rules or patterns can often be related to specific linguistic phenomena. However, these methods may need help to generalise due to the diversity and variability in translationese.
+
+Statistical methods utilize various language models or statistical measures to distinguish translations from native texts. Support Vector Machines (SVMs), for instance, have been employed with success in recognizing translated text, achieving high accuracy and precision. They often use features such as the distribution of function words and morphosyntactic categories and show significant improvement when adding simplification features. However, traditional statistical methods often rely on manual feature engineering, which can be time-consuming and require linguistic expertise.
+
+Machine learning, particularly neural networks, has shown promise in translationese classification. These methods often outperform traditional manual feature engineering-based approaches, such as SVMs, by learning salient features directly from the data. Neural architectures, including BERT, have shown superior performance in this task. For example, using BERT representations with SVM classifiers yields results comparable to those of the best BERT classifiers.
+
+Moreover, machine learning techniques allow for the investigation of translationese in various contexts, such as human translations, simultaneous interpreting, or machine translations. They detect translationese in non-invaside ways and compare it across different translation modalities. However, a limitation of neural models is their 'black-box' nature, which often makes the learned features less interpretable.
+
+The field is gradually moving towards feature-learning-based approaches and neural architectures, which do not require manual feature engineering. Although neural models have been less explored for this task, recent advancements in language models suggest a promising direction for translationese classification. For example, pre-trained neural word embeddings and various end-to-end neural architectures can be employed in both monolingual and multilingual contexts.
+
+While there are several effective methods for translationese classification, each approach comes with its own strengths and limitations. The task remains challenging due to the complexities and variations in translationese. Nevertheless, the advancements in machine learning, particularly neural networks, offer promising directions for future research.
+
+
+\section{Linguistic Features for Translationese Classification}
+
+Numerous studies have examined various linguistic aspects, such as lexical, syntactic, semantic, and stylistic features, to classify and distinguish translationese.
+
+Lexical features primarily focus on word frequencies and n-gram models. Word frequency is a commonly used linguistic feature in translationese studies as it can help identify the occurrence and repetition of words in translated texts compared to original ones. N-gram models, which are sequences of n words, are another critical feature used to characterize translationese. The use of n-gram models, especially bigrams, trigrams, and 4-grams, in part-of-speech tags has been successfully applied to investigate genre and method variation in a translation corpus.
+
+Syntactic features involve the grammatical structure of sentences. A common method used to extract syntactic features is parsing, which can generate parse trees to represent sentence structure. Part-of-speech tags and syntactic parse trees are used to classify and differentiate between translations and native texts.
+
+Semantic features relate to the meaning of words and sentences. One semantic feature used in translationese classification is semantic representations, which involve capturing the meaning of words and sentences in a computable form. Although the literature provided does not mention specific semantic features used in translationese classification, previous research has shown that certain linguistic representations derived by Natural Language Processing (NLP) techniques, such as word senses and syntactic relations, have been observed to be ineffective in improving document retrieval and text categorization.
+
+Stylistic features in translationese are often related to specific choices made by translators, potentially influenced by their source language, which can contribute to the unique style of translated texts.
+
+The effectiveness of these features in differentiating translations from native texts is examined along with their limitations. Features specific to translations or those occurring with significantly variable frequency in translations than in originals are effective in distinguishing translated texts.
+
+However, challenges related to feature selection, feature engineering, and the robustness of these features across different languages and translation domains remain. One major limitation is that the choice of features can be heavily influenced by the type of texts under investigation. For instance, certain features may be more prominent in literary translations as compared to technical or scientific translations.
+
+Moreover, the effect of the translator's individual style, the translation method, and the period during which the translation was made can also significantly affect the appearance of translationese features. Consequently, more research is required to ensure the generalizability of these features across different translation corpora and contexts.
+
+Additionally, computational methods used for feature extraction and classification also have limitations. Many studies rely on supervised machine learning methods, which require labelled data for training. This requirement may limit the scalability of these methods since labelling data can be time-consuming and requires expert knowledge. Furthermore, the performance of these methods can be affected by issues such as class imbalance and overfitting.
+
+
+\section{Feature Engineering Techniques}
+
+An important crucial step in machine learning and natural language processing (NLP) applications, including translationese classification is represented by feature engineering. This process is focused on the creation of new features or the adjustment of already existing ones, with the purpose of model performance improvement. The objective is to extract the most informative and relevant attributes that can improve the predictive power of the model, thereby enhancing the classification results.
+
+In the context of translationese classification, feature engineering can involve extracting linguistic attributes such as the syntactic, semantic, and stylistic properties of the text. This is often done using hand-picked linguistic features which have been traditionally utilized for identifying translated and non-translated texts.
+
+Preprocessing forms the first stage of feature engineering. Text normalization methods such as tokenization, stop-word removal, and stemming are widespread techniques. Tokenization breaks down the text into smaller parts like words or sentences. Stop-word removal excludes common words like 'is', 'the', 'and', which do not carry much meaningful information for analysis. Stemming reduces words to their root form.
+
+Feature selection, the next step, is used to identify the most informative features for classification. Methods like chi-square or mutual information can be used to quantify the bridge between every input variable and the target variable. Features that exhibit strong correlation with the target variable are usually selected.
+
+In cases where feature vectors have a high dimensionality, dimensionality reduction techniques like PCA or LDA can be applied. These methods reduce the dimensionality of feature vectors without losing significant information, making the data more manageable and reducing computational costs.
+
+Feature engineering can significantly enhance the performance of translationese classification. However, there is a trade-off between the complexity of feature engineering and the computational cost or interpretability of the models. Furthermore, one of the challenges is to ensure that the engineered features are generalizable across different translation domains or languages.
+
+While feature engineering is crucial when it comes to translationese classification, care must be taken to select and engineer features that will not only improve classification performance but also maintain generalizability across different contexts. It is also important to balance the complexity of the features and the computational and interpretability costs associated with them.
+
+
+
+\section{Previous Approaches using Large Language Models}
+
+The past decade has seen a dramatic shift in the field of machine learning, with the advent and proliferation of large language models like Transformers, BERT, GPT, and their variants. These models have been applied across numerous NLP tasks, and this text specifically focuses on their use in translationese classification.
+
+Large language models' potential for translationese classification was initially recognized due to their robustness in capturing complex linguistic contexts. Traditional methods, based mostly on rule-based algorithms and shallow learning models, struggled with the complexity and variability inherent in this task. They were largely limited by their inability to handle long-range dependencies and the vast number of language-specific nuances.
+
+The first significant milestone was the adoption of Transformer models in translationese classification. These models, introduced by Vaswani et al. in 2017 \cite{attention}, were revolutionary due to their unique architecture that permitted the model to attend to any part of the input sequence, thereby effectively capturing long-range dependencies. Many studies leveraging Transformers showed a noticeable improvement in accuracy and robustness compared to traditional methods.
+
+BERT (Bidirectional Encoder Representations from Transformers) further improved upon the Transformer architecture by pre-training the model on a large corpus of text and then fine-tuning it for specific tasks, such as translationese classification. This approach provided the model with a more nuanced understanding of language, contributing to better performance. The robustness of BERT was evidenced in a 2020 study \cite{DBLPewfiovncoi} that demonstrated its ability to excel in multi-lingual and domain-specific settings.
+
+Subsequently, studies started utilizing GPT-like models, which, unlike BERT, are autoregressive and generate outputs one token at a time. Although primarily used for text generation, GPT-like models' remarkable ability to handle language-specific phenomena made them suitable for translationese classification. The application of GPT-like models to this task and their subsequent success was a testament to the models' flexibility and adaptability.
+
+Despite the strides made by large language models, there have been challenges. The interpretability of these models has been a significant concern due to their black-box nature. Further, the trade-off between accuracy and computational resources is often a limiting factor, given that large language models require substantial computational power and storage.
+
+The use of large language models in translationese classification has transformed the field, providing high accuracy and robustness against varied linguistic phenomena. Despite their challenges, their ability to capture complex language semantics and long-range dependencies, along with their adaptability to different languages and domains, ensures their continued relevance in translationese classification studies. Future work will likely focus on improving the model's' interpretability and efficiency.
+
+
+\section{Summary and Identified Gaps}
+
+The extensive review of the literature presented in the previous sections has underscored the rich and multidimensional landscape of translationese classification. Through various studies, different approaches have been utilized to tackle this challenging task, with the common goal of enhancing the understanding of the complexities and subtleties of the translated text.
+
+Among the reviewed approaches, the utilization of large language models, such as Transformers or BERT\cite{BERT}, has emerged as a promising path. These models have demonstrated a strong capacity to capture contextual and semantic information, which is paramount in the field of translationese classification. Furthermore, large language models have shown to be effective in identifying long-range dependencies, a key feature in analyzing the structure and composition of the translated text.
+
+Despite the promising results achieved by large language models in translationese classification \cite{xjsdhchuc3oiqwe}, our review identified several areas that have been inadequately addressed in previous research. These gaps in the literature provide us with the opportunity to expand and refine the existing approaches, thus propelling further advancements in the field.
+
+Firstly, there is a noticeable gap in the exploration of translation errors across different literary genres. While several studies have focused on specific types of texts, such as newspapers and legal documents, the comprehensive analysis of translation errors across a variety of genres remains an area ripe for exploration. The ability of large language models to adapt to different languages and domains makes them particularly suited to address this gap.
+
+Secondly, the issue of interpretability of large language models remains largely unaddressed. While these models have excelled in terms of accuracy, their "black box" nature poses a significant challenge. Developing methods that allow better interpretability of these models would not only improve our understanding of how these models work but also enhance our confidence in their results.
+
+Thirdly, the trade-off between accuracy and computational resources is another area that has been insufficiently explored in previous studies. With the increasing complexity and size of large language models, the computational cost of utilizing these models is a significant consideration. Future research should focus on strategies to optimize this trade-off.
+
+In light of these identified gaps, the subsequent chapters will present an approach that leverages the strengths of large language models to advance the field of translationese classification. The proposed approach aims to address the aforementioned gaps, with a particular emphasis on improving the interpretability of these models and optimizing the trade-off between accuracy and computational resources.
+
+
+
